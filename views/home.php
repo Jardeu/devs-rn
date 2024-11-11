@@ -11,8 +11,8 @@
 <body>
     <main class="home-container">
         <h1>Gerenciamento de associados</h1>
-        <a href="?page=associado&action=list">Ver Associados</a>
         <a href="?page=anuidade&action=list">Ver Anuidades</a>
+        <a href="?page=associado&action=list">Ver Associados</a>
     </main>
 </body>
 

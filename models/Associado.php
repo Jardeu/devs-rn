@@ -37,7 +37,7 @@ class Associado
                 ELSE 'Em Dia' 
             END AS status_pagamento
             FROM " . $this->table . " a
-            JOIN anuidade an ON an.ano >= YEAR(a.data_filiacao)
+            LEFT JOIN anuidade an ON an.ano >= YEAR(a.data_filiacao)
             LEFT JOIN pagamento p ON p.associado_id = a.id AND p.anuidade_id = an.id
             GROUP BY a.id";
 

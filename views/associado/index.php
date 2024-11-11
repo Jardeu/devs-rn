@@ -19,36 +19,40 @@
 
     <h1>Lista de Associados</h1>
     <a href="?page=associado&action=cadastrar" class="btn btn-success">Cadastrar Novo Associado</a>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>E-mail</th>
-                <th>CPF</th>
-                <th>Data de Filiação</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($associados as $associado): ?>
+    <?php if ($associados) : ?>
+        <table border="1">
+            <thead>
                 <tr>
-                    <td><?= $associado['nome'] ?></td>
-                    <td><?= $associado['email'] ?></td>
-                    <td><?= $associado['cpf'] ?></td>
-                    <td><?= date_format(date_create($associado['data_filiacao']), 'd/m/Y') ?></td>
-                    <td>
-                        <span class="<?= ($associado['status_pagamento'] == "Em Dia") ? "success" : "error"; ?>">
-                            <?= $associado['status_pagamento'] ?>
-                        </span>
-                    </td>
-                    <td>
-                        <a href="?page=pagamento&action=checkout&associado=<?= $associado['associado_id'] ?>">Checkout</a>
-                    </td>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>CPF</th>
+                    <th>Data de Filiação</th>
+                    <th>Status</th>
+                    <th>Ações</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($associados as $associado): ?>
+                    <tr>
+                        <td><?= $associado['nome'] ?></td>
+                        <td><?= $associado['email'] ?></td>
+                        <td><?= $associado['cpf'] ?></td>
+                        <td><?= date_format(date_create($associado['data_filiacao']), 'd/m/Y') ?></td>
+                        <td>
+                            <span class="<?= ($associado['status_pagamento'] == "Em Dia") ? "success" : "error"; ?>">
+                                <?= $associado['status_pagamento'] ?>
+                            </span>
+                        </td>
+                        <td>
+                            <a href="?page=pagamento&action=checkout&associado=<?= $associado['associado_id'] ?>">Checkout</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else : ?>
+        <p>Nenhum associado cadastrado.</p>
+    <?php endif ?>
 
     <a href="index.php">Voltar para o início</a>
 </body>

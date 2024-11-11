@@ -40,7 +40,7 @@
                         <?php foreach ($pagamento as $pag): ?>
                             <tr>
                                 <td><?= $pag['ano'] ?></td>
-                                <td><?= $pag['valor'] ?></td>
+                                <td><?= number_format($pag['valor'], 2, ',', '.') ?></td>
                                 <td>
                                     <a href="index.php?page=pagamento&action=pagar&associado=
                                         <?= $pag['associado_id'] ?>&anuidade=<?= $pag['anuidade_id'] ?>"
@@ -50,7 +50,7 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <p><strong>Valor total devido:</strong> R$ <?= $pagamento[0]['total_devido'] ?></p>
+                <p><strong>Valor total devido:</strong> R$ <?= number_format($pagamento[0]['total_devido'], 2, ',', '.') ?></p>
             </div>
         <?php else: ?>
             <p>Este associado não possui anuidades pendentes.</p>

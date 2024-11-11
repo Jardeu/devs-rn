@@ -19,26 +19,30 @@
 
     <h1>Lista de Anuidades</h1>
     <a href="index.php?page=anuidade&action=cadastrar" class="btn btn-success">Cadastrar Nova Anuidade</a>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Ano</th>
-                <th>Valor (R$)</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($anuidades as $anuidade): ?>
+    <?php if ($anuidades) : ?>
+        <table border="1">
+            <thead>
                 <tr>
-                    <td><?= $anuidade['ano'] ?></td>
-                    <td>R$ <?= number_format($anuidade['valor'], 2, ',', '.') ?></td>
-                    <td>
-                        <a href="index.php?page=anuidade&action=edit&id=<?= $anuidade['id'] ?>">Editar</a>
-                    </td>
+                    <th>Ano</th>
+                    <th>Valor (R$)</th>
+                    <th>Ações</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($anuidades as $anuidade): ?>
+                    <tr>
+                        <td><?= $anuidade['ano'] ?></td>
+                        <td>R$ <?= number_format($anuidade['valor'], 2, ',', '.') ?></td>
+                        <td>
+                            <a href="index.php?page=anuidade&action=edit&id=<?= $anuidade['id'] ?>">Editar</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else : ?>
+        <p>Nenhuma anuidade cadastrada.</p>
+    <?php endif ?>
 
     <a href="index.php">Voltar para o início</a>
 </body>
