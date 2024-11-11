@@ -47,9 +47,7 @@ git clone https://github.com/Jardeu/devs-rn.git
 
 Após configurar o banco de dados e o XAMPP, o sistema estará disponível em:
 
-```plaintext
-http://localhost/devs-rn/index.php
-```
+[http://localhost/devs-rn/index.php](http://localhost/devs-rn/index.php)
 
 ## Licença
 
