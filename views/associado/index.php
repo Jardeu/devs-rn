@@ -36,7 +36,7 @@
                     <td><?= $associado['nome'] ?></td>
                     <td><?= $associado['email'] ?></td>
                     <td><?= $associado['cpf'] ?></td>
-                    <td><?= $associado['data_filiacao'] ?></td>
+                    <td><?= date_format(date_create($associado['data_filiacao']), 'd/m/Y') ?></td>
                     <td>
                         <span class="<?= ($associado['status_pagamento'] == "Em Dia") ? "success" : "error"; ?>">
                             <?= $associado['status_pagamento'] ?>

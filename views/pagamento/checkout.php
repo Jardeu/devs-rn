@@ -23,11 +23,11 @@
         <h1>Pagamento de Anuidades</h1>
         <?php if ($pagamento): ?>
             <div>
-                <p>Nome: <?= $pagamento[0]['nome'] ?></p>
-                <p>Data de Filiação: <?= $pagamento[0]['data_filiacao'] ?></p>
+                <p><strong>Nome:</strong> <?= $pagamento[0]['nome'] ?></p>
+                <p><strong>Data de Filiação:</strong> <?= date_format(date_create($pagamento[0]['data_filiacao']), 'd/m/Y') ?></p>
             </div>
             <div>
-                <p>Anuidades devidas: </p>
+                <p><strong>Anuidades devidas: </strong></p>
                 <table border="1">
                     <thead>
                         <tr>
@@ -50,7 +50,7 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <p>Valor total devido: <?= $pagamento[0]['total_devido'] ?></p>
+                <p><strong>Valor total devido:</strong> R$ <?= $pagamento[0]['total_devido'] ?></p>
             </div>
         <?php else: ?>
             <p>Este associado não possui anuidades pendentes.</p>
